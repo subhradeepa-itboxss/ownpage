@@ -6,4 +6,5 @@
 /web/sites/*/files/
 /.ddev/db_snapshots/
 *.log
-.env
+.env.ddev/
+/recipes/
