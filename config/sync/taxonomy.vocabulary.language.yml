@@ -1,0 +1,9 @@
+uuid: 39833d7c-03f8-4f8d-841d-3bf00b16e24e
+langcode: en
+status: true
+dependencies: {  }
+name: Language
+vid: language
+description: "Defines the language options available for a website's content, primarily used for Resume-type websites where language selection"
+weight: 0
+new_revision: false

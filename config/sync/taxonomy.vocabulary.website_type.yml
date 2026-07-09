@@ -1,0 +1,9 @@
+uuid: 40f1482b-e5d7-4ae4-973b-709c3fe30707
+langcode: en
+status: true
+dependencies: {  }
+name: 'Website Type'
+vid: website_type
+description: 'Defines whether a website is a Resume, Portfolio, or Shop'
+weight: 0
+new_revision: false

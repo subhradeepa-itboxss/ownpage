@@ -1,0 +1,9 @@
+uuid: aea2a2f3-ae86-4161-af96-248c78fc4231
+langcode: en
+status: true
+dependencies: {  }
+name: Template
+vid: template
+description: 'Defines the available layout/design templates a user can choose from for their website, grouped by Website Type (e.g., Resume te'
+weight: 0
+new_revision: false

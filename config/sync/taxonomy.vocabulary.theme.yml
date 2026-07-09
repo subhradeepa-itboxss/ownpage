@@ -1,0 +1,9 @@
+uuid: 016b62c2-1201-4635-8172-ec9b935113fc
+langcode: en
+status: true
+dependencies: {  }
+name: Theme
+vid: theme
+description: 'Defines the predefined color themes a user can apply to their website.'
+weight: 0
+new_revision: false
