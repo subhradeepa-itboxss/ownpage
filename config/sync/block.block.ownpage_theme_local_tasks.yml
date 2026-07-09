@@ -1,0 +1,22 @@
+uuid: d0b3aadc-4d85-4e6a-a8c3-ce623ca74f91
+langcode: en
+status: true
+dependencies:
+  theme:
+    - ownpage_theme
+_core:
+  default_config_hash: QcuR2jyhJEKCuhto2f2qKxbEHVcapn5Sw4wPwG1IAJQ
+id: ownpage_theme_local_tasks
+theme: ownpage_theme
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

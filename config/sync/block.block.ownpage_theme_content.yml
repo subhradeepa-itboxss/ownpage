@@ -1,0 +1,22 @@
+uuid: 8796ae90-7166-4359-9bd8-f22b848b1de9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ownpage_theme
+_core:
+  default_config_hash: ZIACb8fdZcgOJmIwTgxZVI5slJSegCxmioIvnE1oVFc
+id: ownpage_theme_content
+theme: ownpage_theme
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

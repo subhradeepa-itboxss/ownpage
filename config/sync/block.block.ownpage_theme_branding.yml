@@ -1,0 +1,25 @@
+uuid: 39a38692-881b-4995-a369-a837ad0680a1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ownpage_theme
+_core:
+  default_config_hash: RvLvLXojhbv4I97eW-Gj2_fwNGxFAK796jqZg4X36SQ
+id: ownpage_theme_branding
+theme: ownpage_theme
+region: nav_branding
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: a56ac9f2-cba8-4037-b183-45694b66a270
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - ownpage_theme
+_core:
+  default_config_hash: GRt2vnV1ImaWmK-QwTNLQtv6gmS_uNB1y_esvoHsMwo
+id: ownpage_theme_help
+theme: ownpage_theme
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 325d5bd4-93ab-40bb-a71a-de9d4ea972bc
+langcode: en
+status: true
+dependencies:
+  theme:
+    - ownpage_theme
+_core:
+  default_config_hash: top_G8EgNDpYdZl2WccGfMKDagxKXoEkDvXll2bwcNM
+id: ownpage_theme_local_actions
+theme: ownpage_theme
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

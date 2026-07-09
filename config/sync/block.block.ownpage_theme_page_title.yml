@@ -1,0 +1,20 @@
+uuid: b77c86a1-0126-4f67-aa95-0aa9ba497771
+langcode: en
+status: true
+dependencies:
+  theme:
+    - ownpage_theme
+_core:
+  default_config_hash: nyFTgXBmmMr8fkMlfZp0Z0x46d8eyquzT-QUYCMSJ5g
+id: ownpage_theme_page_title
+theme: ownpage_theme
+region: content
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

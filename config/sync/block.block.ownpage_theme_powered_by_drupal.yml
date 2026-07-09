@@ -1,0 +1,22 @@
+uuid: 4cc7e985-fc9a-4423-bac5-84e669779fe4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ownpage_theme
+_core:
+  default_config_hash: zafOnnZ-chnHoLVDu4g_ZZ7x9ARnvOJuI2BEvzrpCPw
+id: ownpage_theme_powered_by_drupal
+theme: ownpage_theme
+region: footer
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

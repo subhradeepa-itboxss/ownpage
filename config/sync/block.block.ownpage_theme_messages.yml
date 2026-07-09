@@ -1,0 +1,22 @@
+uuid: d8bf078a-7801-477e-9174-c5788701dcc5
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ownpage_theme
+_core:
+  default_config_hash: UIOF84Skb1coOt-FjshSxprFxHWFLuepIBYjldoDxEU
+id: ownpage_theme_messages
+theme: ownpage_theme
+region: content
+weight: -7
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }

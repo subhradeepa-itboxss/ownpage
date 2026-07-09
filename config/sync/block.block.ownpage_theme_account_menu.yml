@@ -1,0 +1,27 @@
+uuid: edf43c64-69d1-4e6b-8681-567a41e8190b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - ownpage_theme
+_core:
+  default_config_hash: CiwohV68VngjLu0fG_GAKxDQjbeg5x32_OsYFqaBf0k
+id: ownpage_theme_account_menu
+theme: ownpage_theme
+region: nav_additional
+weight: -7
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }
