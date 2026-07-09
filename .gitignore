@@ -9,3 +9,4 @@
 .env.ddev/
 /recipes/
 /.ddev/
+web/sites/default/settings.local.php
