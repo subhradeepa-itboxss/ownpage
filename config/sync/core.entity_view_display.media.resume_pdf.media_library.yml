@@ -1,0 +1,32 @@
+uuid: e8cef6c2-5295-4ca6-a2f4-489b6619663a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.resume_pdf.field_media_document
+    - image.style.medium
+    - media.type.resume_pdf
+  module:
+    - image
+id: media.resume_pdf.media_library
+targetEntityType: media
+bundle: resume_pdf
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_document: true
+  name: true
+  uid: true

@@ -1,0 +1,13 @@
+uuid: 0b5cc060-edd9-46d6-849a-d87a694b7fe5
+langcode: en
+status: true
+dependencies: {  }
+id: banner
+label: Banner
+description: ''
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map: {  }

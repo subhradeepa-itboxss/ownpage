@@ -1,0 +1,27 @@
+uuid: 204d99a8-38f8-458b-af09-0cb4393506d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_document
+    - media.type.resume_pdf
+  module:
+    - file
+id: media.resume_pdf.field_media_document
+field_name: field_media_document
+entity_type: media
+bundle: resume_pdf
+label: File
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt doc docx pdf'
+  max_filesize: ''
+  description_field: false
+field_type: file

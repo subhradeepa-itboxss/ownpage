@@ -1,0 +1,31 @@
+uuid: f8a7290a-aea3-4a94-b47e-81c112e2a530
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.logo.field_media_image
+    - image.style.large
+    - media.type.logo
+  module:
+    - image
+id: media.logo.default
+targetEntityType: media
+bundle: logo
+mode: default
+content:
+  field_media_image:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: large
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

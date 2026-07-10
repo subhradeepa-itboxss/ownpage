@@ -1,0 +1,31 @@
+uuid: 175acd23-6d37-4ac2-a216-e087e477961d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.profile_photo.field_media_image
+    - image.style.large
+    - media.type.profile_photo
+  module:
+    - image
+id: media.profile_photo.default
+targetEntityType: media
+bundle: profile_photo
+mode: default
+content:
+  field_media_image:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: large
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

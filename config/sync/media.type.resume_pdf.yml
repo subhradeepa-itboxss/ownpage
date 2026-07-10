@@ -1,0 +1,13 @@
+uuid: a6df26d1-dffa-4db0-b76c-7bf8e77c54b8
+langcode: en
+status: true
+dependencies: {  }
+id: resume_pdf
+label: 'Resume PDF'
+description: ''
+source: file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_document
+field_map: {  }

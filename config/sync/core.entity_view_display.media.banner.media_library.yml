@@ -1,0 +1,32 @@
+uuid: 2eca4e80-eb1a-4b74-9f5e-6ec3d17b080a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.banner.field_media_image
+    - image.style.medium
+    - media.type.banner
+  module:
+    - image
+id: media.banner.media_library
+targetEntityType: media
+bundle: banner
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_image: true
+  name: true
+  uid: true
