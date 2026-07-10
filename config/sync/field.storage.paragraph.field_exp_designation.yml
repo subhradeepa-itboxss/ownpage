@@ -1,0 +1,21 @@
+uuid: a975cc89-01ab-41bd-b9a9-7f300a2f8c7d
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_exp_designation
+field_name: field_exp_designation
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

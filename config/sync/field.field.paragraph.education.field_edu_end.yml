@@ -1,0 +1,21 @@
+uuid: 8e4e60e0-c4f7-4e8d-8c09-ec0e29268ca7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_edu_end
+    - paragraphs.paragraphs_type.education
+  module:
+    - datetime
+id: paragraph.education.field_edu_end
+field_name: field_edu_end
+entity_type: paragraph
+bundle: education
+label: 'End Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

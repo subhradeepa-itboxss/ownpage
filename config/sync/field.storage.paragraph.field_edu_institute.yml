@@ -1,0 +1,21 @@
+uuid: 5ad8b805-1c22-4ec1-8904-18150eeedf58
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_edu_institute
+field_name: field_edu_institute
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

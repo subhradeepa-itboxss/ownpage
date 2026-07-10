@@ -1,0 +1,19 @@
+uuid: 48200778-a511-46c9-a430-476802bf98e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_edu_degree
+    - paragraphs.paragraphs_type.education
+id: paragraph.education.field_edu_degree
+field_name: field_edu_degree
+entity_type: paragraph
+bundle: education
+label: Education
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

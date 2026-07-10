@@ -1,0 +1,48 @@
+uuid: 29f7032a-f429-49d3-a34f-986d7ae77663
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.product.field_product_description
+    - field.field.paragraph.product.field_product_image
+    - field.field.paragraph.product.field_product_name
+    - field.field.paragraph.product.field_product_price
+    - paragraphs.paragraphs_type.product
+id: paragraph.product.default
+targetEntityType: paragraph
+bundle: product
+mode: default
+content:
+  field_product_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_product_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_product_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_product_price:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

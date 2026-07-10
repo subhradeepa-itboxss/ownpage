@@ -1,0 +1,21 @@
+uuid: 1bedc2dd-f137-45ed-b692-5691c8565333
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_exp_end
+    - paragraphs.paragraphs_type.experience
+  module:
+    - datetime
+id: paragraph.experience.field_exp_end
+field_name: field_exp_end
+entity_type: paragraph
+bundle: experience
+label: End
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

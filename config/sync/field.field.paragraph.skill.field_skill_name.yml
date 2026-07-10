@@ -1,0 +1,19 @@
+uuid: 12ca70e9-483e-48db-a7aa-a065f023016e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_skill_name
+    - paragraphs.paragraphs_type.skill
+id: paragraph.skill.field_skill_name
+field_name: field_skill_name
+entity_type: paragraph
+bundle: skill
+label: Skill
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,20 @@
+uuid: a5f02aa7-9e7d-400b-a0c9-18aecb3aa363
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - paragraphs
+id: paragraph.field_exp_end
+field_name: field_exp_end
+entity_type: paragraph
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

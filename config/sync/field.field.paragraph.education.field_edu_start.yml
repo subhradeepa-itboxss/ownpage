@@ -1,0 +1,21 @@
+uuid: 0845bd22-6c1d-4226-892d-469f9ac76f9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_edu_start
+    - paragraphs.paragraphs_type.education
+  module:
+    - datetime
+id: paragraph.education.field_edu_start
+field_name: field_edu_start
+entity_type: paragraph
+bundle: education
+label: 'Start Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
