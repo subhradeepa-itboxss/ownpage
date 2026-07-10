@@ -1,0 +1,49 @@
+uuid: a315cd73-38df-44f7-abda-dad154ace9cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_op_sections
+    - node.type.website
+    - paragraphs.paragraphs_type.education
+    - paragraphs.paragraphs_type.experience
+    - paragraphs.paragraphs_type.product
+    - paragraphs.paragraphs_type.skill
+  module:
+    - entity_reference_revisions
+id: node.website.field_op_sections
+field_name: field_op_sections
+entity_type: node
+bundle: website
+label: Sections
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      education: education
+      experience: experience
+      product: product
+      skill: skill
+    negate: 0
+    target_bundles_drag_drop:
+      education:
+        weight: 6
+        enabled: true
+      experience:
+        weight: 7
+        enabled: true
+      hero:
+        weight: 8
+        enabled: false
+      product:
+        weight: 9
+        enabled: true
+      skill:
+        weight: 10
+        enabled: true
+field_type: entity_reference_revisions

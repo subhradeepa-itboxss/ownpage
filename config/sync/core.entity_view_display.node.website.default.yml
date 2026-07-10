@@ -1,0 +1,112 @@
+uuid: 005a8a3b-2138-49f7-9743-ddb0cfd44c85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.website.field_op_featured_image
+    - field.field.node.website.field_op_hero
+    - field.field.node.website.field_op_meta_description
+    - field.field.node.website.field_op_meta_title
+    - field.field.node.website.field_op_sections
+    - field.field.node.website.field_op_slug
+    - field.field.node.website.field_op_status
+    - field.field.node.website.field_op_template
+    - field.field.node.website.field_op_theme
+    - field.field.node.website.field_op_website_type
+    - node.type.website
+  module:
+    - entity_reference_revisions
+    - options
+    - user
+id: node.website.default
+targetEntityType: node
+bundle: website
+mode: default
+content:
+  field_op_featured_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_op_hero:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_op_meta_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_op_meta_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_op_sections:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_op_slug:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_op_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_op_template:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_op_theme:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_op_website_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

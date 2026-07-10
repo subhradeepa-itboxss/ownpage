@@ -1,0 +1,43 @@
+uuid: 6e94e8f5-3223-4a24-b96b-9db0a86369ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_op_hero
+    - node.type.website
+    - paragraphs.paragraphs_type.hero
+  module:
+    - entity_reference_revisions
+id: node.website.field_op_hero
+field_name: field_op_hero
+entity_type: node
+bundle: website
+label: 'Hero Section'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      hero: hero
+    negate: 0
+    target_bundles_drag_drop:
+      education:
+        weight: 6
+        enabled: false
+      experience:
+        weight: 7
+        enabled: false
+      hero:
+        weight: 8
+        enabled: true
+      product:
+        weight: 9
+        enabled: false
+      skill:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

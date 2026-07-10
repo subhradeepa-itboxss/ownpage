@@ -1,0 +1,30 @@
+uuid: b7dee049-8937-4bc1-8dac-69e1426615c5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_op_status
+field_name: field_op_status
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: draft
+      label: Draft
+    -
+      value: published
+      label: Published
+    -
+      value: archived
+      label: Archived
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

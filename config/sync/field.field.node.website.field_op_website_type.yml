@@ -1,0 +1,29 @@
+uuid: 6fcd3537-3478-44af-83ef-016c26adccf5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_op_website_type
+    - node.type.website
+    - taxonomy.vocabulary.website_type
+id: node.website.field_op_website_type
+field_name: field_op_website_type
+entity_type: node
+bundle: website
+label: 'Website Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      website_type: website_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

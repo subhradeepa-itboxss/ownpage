@@ -1,0 +1,21 @@
+uuid: d2daac80-bbe1-491b-86a4-dcc080355665
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_op_status
+    - node.type.website
+  module:
+    - options
+id: node.website.field_op_status
+field_name: field_op_status
+entity_type: node
+bundle: website
+label: Status
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
