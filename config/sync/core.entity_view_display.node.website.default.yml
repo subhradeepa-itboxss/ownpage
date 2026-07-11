@@ -25,7 +25,7 @@ mode: default
 content:
   field_op_featured_image:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: false
@@ -34,7 +34,7 @@ content:
     region: content
   field_op_hero:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
@@ -43,14 +43,14 @@ content:
     region: content
   field_op_meta_description:
     type: basic_string
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 109
     region: content
   field_op_meta_title:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -58,7 +58,7 @@ content:
     region: content
   field_op_sections:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
@@ -67,7 +67,7 @@ content:
     region: content
   field_op_slug:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -75,14 +75,14 @@ content:
     region: content
   field_op_status:
     type: list_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 105
     region: content
   field_op_template:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -90,7 +90,7 @@ content:
     region: content
   field_op_theme:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -98,7 +98,7 @@ content:
     region: content
   field_op_website_type:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
