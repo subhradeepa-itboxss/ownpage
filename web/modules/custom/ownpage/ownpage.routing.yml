@@ -1,0 +1,15 @@
+ownpage.dashboard:
+  path: '/dashboard'
+  defaults:
+    _controller: '\Drupal\ownpage\Controller\DashboardController::view'
+    _title: 'Dashboard'
+  requirements:
+    _permission: 'access content'
+
+ownpage.dashboard_websites:
+  path: '/dashboard/websites'
+  defaults:
+    _controller: '\Drupal\ownpage\Controller\DashboardController::websites'
+    _title: 'My Websites'
+  requirements:
+    _permission: 'access content'
