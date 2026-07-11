@@ -1,0 +1,13 @@
+name: OwnPage
+type: module
+description: 'Core business logic and functionality for the OwnPage Website-as-a-Service platform.'
+package: OwnPage
+core_version_requirement: ^10
+dependencies:
+  - drupal:paragraphs
+  - drupal:media
+  - drupal:media_library
+  - drupal:pathauto
+  - drupal:token
+  - drupal:metatag
+  - commerce:commerce
