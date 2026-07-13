@@ -1,0 +1,7 @@
+administer ownpage websites:
+  title: 'Administer OwnPage websites'
+  description: 'Manage all websites regardless of ownership.'
+
+manage own ownpage website:
+  title: 'Manage own OwnPage website'
+  description: 'Create, edit, preview, publish, duplicate, and archive own websites.'

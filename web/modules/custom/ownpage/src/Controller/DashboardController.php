@@ -30,9 +30,10 @@ class DashboardController extends ControllerBase {
   public function websites() {
     $storage = \Drupal::entityTypeManager()->getStorage('node');
     $nids = $storage->getQuery()
-      ->condition('type', 'website')
-      ->accessCheck(TRUE)
-      ->execute();
+  ->condition('type', 'website')
+  ->condition('uid', $this->currentUser()->id())
+  ->accessCheck(TRUE)
+  ->execute();
 
     $nodes = $storage->loadMultiple($nids);
 

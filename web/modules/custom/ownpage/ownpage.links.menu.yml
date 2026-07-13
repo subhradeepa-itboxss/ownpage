@@ -1,0 +1,5 @@
+ownpage.dashboard_websites:
+  title: 'My Websites'
+  route_name: ownpage.dashboard_websites
+  menu_name: main
+  weight: 10

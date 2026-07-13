@@ -4,7 +4,7 @@ ownpage.dashboard:
     _controller: '\Drupal\ownpage\Controller\DashboardController::view'
     _title: 'Dashboard'
   requirements:
-    _permission: 'access content'
+    _permission: 'manage own ownpage website'
 
 ownpage.dashboard_websites:
   path: '/dashboard/websites'
@@ -12,4 +12,4 @@ ownpage.dashboard_websites:
     _controller: '\Drupal\ownpage\Controller\DashboardController::websites'
     _title: 'My Websites'
   requirements:
-    _permission: 'access content'
+    _permission: 'manage own ownpage website'
