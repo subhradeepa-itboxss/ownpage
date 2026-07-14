@@ -39,11 +39,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_product_price:
-    type: string_textfield
-    weight: 1
+    type: number
+    weight: 4
     region: content
     settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
 hidden:

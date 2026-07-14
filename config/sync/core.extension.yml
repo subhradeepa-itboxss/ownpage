@@ -11,6 +11,14 @@ module:
   breakpoint: 0
   ckeditor5: 0
   commerce: 0
+  commerce_cart: 0
+  commerce_checkout: 0
+  commerce_number_pattern: 0
+  commerce_order: 0
+  commerce_payment: 0
+  commerce_price: 0
+  commerce_product: 0
+  commerce_store: 0
   config: 0
   contextual: 0
   datetime: 0
@@ -44,8 +52,10 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  profile: 0
   redirect: 0
   simple_sitemap: 0
+  state_machine: 0
   system: 0
   taxonomy: 0
   text: 0

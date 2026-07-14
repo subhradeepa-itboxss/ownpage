@@ -1,4 +1,4 @@
-uuid: 2f2be995-f30b-4454-ba0d-342a2cb3ec9a
+uuid: ca3d778f-070e-467f-b137-278e114ef0db
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,10 @@ dependencies:
 id: paragraph.field_product_price
 field_name: field_product_price
 entity_type: paragraph
-type: string
+type: decimal
 settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
+  precision: 10
+  scale: 2
 module: core
 locked: false
 cardinality: 1

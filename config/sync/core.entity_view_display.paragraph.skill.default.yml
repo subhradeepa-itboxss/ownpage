@@ -12,10 +12,11 @@ bundle: skill
 mode: default
 content:
   field_skill_level:
-    type: string
+    type: number_integer
     label: above
     settings:
-      link_to_entity: false
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
     weight: 1
     region: content

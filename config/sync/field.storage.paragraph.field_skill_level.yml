@@ -1,4 +1,4 @@
-uuid: a140b2fa-3e25-46ae-897f-323b0ab2d84b
+uuid: 81b9566d-872e-4ee8-958d-5cd6a500ba1f
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,10 @@ dependencies:
 id: paragraph.field_skill_level
 field_name: field_skill_level
 entity_type: paragraph
-type: string
+type: integer
 settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

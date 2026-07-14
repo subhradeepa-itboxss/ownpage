@@ -12,11 +12,10 @@ bundle: skill
 mode: default
 content:
   field_skill_level:
-    type: string_textfield
+    type: number
     weight: 1
     region: content
     settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_skill_name:
