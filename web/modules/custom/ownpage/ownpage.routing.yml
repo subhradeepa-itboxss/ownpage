@@ -13,3 +13,27 @@ ownpage.dashboard_websites:
     _title: 'My Websites'
   requirements:
     _permission: 'manage own ownpage website'
+
+ownpage.builder:
+  path: '/builder/{node}'
+  defaults:
+    _form: '\Drupal\ownpage\Form\BuilderBasicInfoForm'
+    _title: 'Website Builder'
+  requirements:
+    _permission: 'manage own ownpage website'
+  options:
+    parameters:
+      node:
+        type: entity:node   
+
+ownpage.builder.sections:
+  path: '/builder/{node}/sections'
+  defaults:
+    _form: '\Drupal\ownpage\Form\BuilderSectionsForm'
+    _title: 'Website Builder - Sections'
+  requirements:
+    _permission: 'manage own ownpage website'
+  options:
+    parameters:
+      node:
+        type: entity:node
