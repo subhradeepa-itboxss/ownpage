@@ -1,3 +1,9 @@
 services:
   ownpage.builder:
     class: Drupal\ownpage\Service\BuilderService
+  ownpage.slug_service:
+    class: Drupal\ownpage\Service\SlugService
+    arguments: ['@entity_type.manager']
+  ownpage.website_service:
+    class: Drupal\ownpage\Service\WebsiteService
+    arguments: ['@entity_type.manager', '@ownpage.slug_service']
