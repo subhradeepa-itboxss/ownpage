@@ -7,3 +7,9 @@ services:
   ownpage.website_service:
     class: Drupal\ownpage\Service\WebsiteService
     arguments: ['@entity_type.manager', '@ownpage.slug_service']
+  ownpage.template_service:
+    class: Drupal\ownpage\Service\TemplateService
+    arguments: ['@entity_type.manager']
+  ownpage.theme_service:
+    class: Drupal\ownpage\Service\ThemeService
+    arguments: ['@entity_type.manager']
