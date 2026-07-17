@@ -1,0 +1,29 @@
+uuid: ab16db00-3d85-4ce3-a4d4-4cd6bd0db766
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_website_type
+    - taxonomy.vocabulary.template
+    - taxonomy.vocabulary.website_type
+id: taxonomy_term.template.field_website_type
+field_name: field_website_type
+entity_type: taxonomy_term
+bundle: template
+label: 'Website Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      website_type: website_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: 29c5e46a-2d0c-41d5-93ab-cc7b400eb5e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_compatible_themes
+    - taxonomy.vocabulary.template
+    - taxonomy.vocabulary.theme
+id: taxonomy_term.template.field_compatible_themes
+field_name: field_compatible_themes
+entity_type: taxonomy_term
+bundle: template
+label: 'Compatible Themes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      theme: theme
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

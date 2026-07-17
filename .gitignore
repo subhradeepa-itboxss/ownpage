@@ -11,3 +11,5 @@
 /.ddev/
 web/sites/default/settings.local.php
 private/
+/docs/
+/CLAUDE.md

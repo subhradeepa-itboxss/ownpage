@@ -4,6 +4,9 @@ namespace Drupal\ownpage\Service;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 
+/**
+ * Generates and validates unique public-facing website slugs.
+ */
 class SlugService {
 
   public function __construct(
@@ -13,7 +16,7 @@ class SlugService {
   public function isAvailable(string $slug, ?int $excludeNid = NULL): bool {
     $query = $this->entityTypeManager->getStorage('node')->getQuery()
       ->condition('type', 'website')
-      ->condition('field_op_slug', $slug)
+      ->condition('field_slug', $slug)
       ->accessCheck(FALSE);
     if ($excludeNid) {
       $query->condition('nid', $excludeNid, '<>');

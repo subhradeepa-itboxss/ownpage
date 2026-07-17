@@ -1,6 +1,13 @@
 services:
+  plugin.manager.ownpage.website_type:
+    class: Drupal\ownpage\WebsiteTypePluginManager
+    parent: default_plugin_manager
+  plugin.manager.ownpage.builder_step:
+    class: Drupal\ownpage\BuilderStepPluginManager
+    parent: default_plugin_manager
   ownpage.builder:
     class: Drupal\ownpage\Service\BuilderService
+    arguments: ['@entity_type.manager', '@plugin.manager.ownpage.website_type', '@plugin.manager.ownpage.builder_step']
   ownpage.slug_service:
     class: Drupal\ownpage\Service\SlugService
     arguments: ['@entity_type.manager']
