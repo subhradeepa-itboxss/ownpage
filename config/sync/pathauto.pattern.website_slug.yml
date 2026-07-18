@@ -1,0 +1,23 @@
+uuid: 986fc393-b6a7-47ea-b993-0eb9ba64a35e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.website
+  module:
+    - node
+id: website_slug
+label: 'Website slug'
+type: 'canonical_entities:node'
+pattern: '/[node:field_op_slug]'
+selection_criteria:
+  8e3e25b7-6b83-46f1-acd2-1e4c8a768d02:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      website: website
+selection_logic: and
+weight: -5
+relationships: {  }

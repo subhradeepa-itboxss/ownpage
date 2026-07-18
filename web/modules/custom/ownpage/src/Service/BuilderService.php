@@ -14,8 +14,11 @@ use Drupal\ownpage\WebsiteTypePluginManager;
  * The step order is never hardcoded here — it comes from
  * BuilderStepPluginManager, which discovers plugins under
  * src/Plugin/BuilderStep (docs/BUILDER_IMPLEMENTATION_GUIDE.md §41-43).
- * Field machine names follow the canonical table in CLAUDE.md — not
- * docs/DATA_MODEL_SPEC.md, whose field_op_* names are legacy.
+ * Field machine names follow the canonical table in CLAUDE.md —
+ * field_op_* per Doc 06, the authoritative source. There is one lifecycle
+ * field (field_op_status); only WebsiteService may set it to
+ * published/archived/deleted, this service only sets draft/in_progress/
+ * ready as the wizard progresses.
  */
 class BuilderService {
 
@@ -42,13 +45,13 @@ class BuilderService {
    * Determines the wizard step the user should be shown next.
    */
   public function getCurrentStep(NodeInterface $node): string {
-    if (!$this->hasValue($node, 'field_website_type')) {
+    if (!$this->hasValue($node, 'field_op_website_type')) {
       return 'type';
     }
-    if (!$this->hasValue($node, 'field_template')) {
+    if (!$this->hasValue($node, 'field_op_template')) {
       return 'template';
     }
-    if (!$this->hasValue($node, 'field_color_theme')) {
+    if (!$this->hasValue($node, 'field_op_theme')) {
       return 'theme';
     }
     if (!$this->requiredSectionsComplete($node)) {
@@ -73,10 +76,12 @@ class BuilderService {
   }
 
   /**
-   * Persists step data, then recomputes progress and builder status.
+   * Persists step data, then advances field_op_status if not already
+   * published/archived/deleted.
    *
-   * This is the only place allowed to change field_builder_status or
-   * field_builder_progress (CLAUDE.md rule 5).
+   * This service only ever sets field_op_status to draft/in_progress/ready
+   * — moving it to published/archived/deleted is exclusively
+   * WebsiteService's job (CLAUDE.md canonical field table).
    */
   public function saveStepData(NodeInterface $node, string $step, array $data): void {
     foreach ($data as $field => $value) {
@@ -84,9 +89,22 @@ class BuilderService {
         $node->set($field, $value);
       }
     }
-    $node->set('field_builder_progress', $this->calculateProgress($node));
-    $node->set('field_builder_status', strtoupper($this->getCurrentStep($node)));
+    if (!in_array($this->publishStatus($node), ['published', 'archived', 'deleted'], TRUE)) {
+      $node->set('field_op_status', $this->deriveLifecycleStatus($node));
+    }
     $node->save();
+  }
+
+  /**
+   * Coarse lifecycle status derived from wizard progress: draft (nothing
+   * entered yet), in_progress (mid-wizard) or ready (required sections
+   * complete, awaiting Publish).
+   */
+  private function deriveLifecycleStatus(NodeInterface $node): string {
+    if (!$this->hasValue($node, 'field_op_website_type')) {
+      return 'draft';
+    }
+    return $this->requiredSectionsComplete($node) ? 'ready' : 'in_progress';
   }
 
   /**
@@ -96,10 +114,10 @@ class BuilderService {
    * — e.g. the "Resume" term resolves to the `resume` plugin.
    */
   public function getWebsiteTypePlugin(NodeInterface $node): ?WebsiteTypeInterface {
-    if (!$this->hasValue($node, 'field_website_type')) {
+    if (!$this->hasValue($node, 'field_op_website_type')) {
       return NULL;
     }
-    $term = $node->get('field_website_type')->entity;
+    $term = $node->get('field_op_website_type')->entity;
     if (!$term) {
       return NULL;
     }
@@ -144,9 +162,9 @@ class BuilderService {
     $ratios = [];
     foreach ($stepIds as $index => $stepId) {
       $ratios[] = match ($stepId) {
-        'type' => $this->hasValue($node, 'field_website_type') ? 1.0 : 0.0,
-        'template' => $this->hasValue($node, 'field_template') ? 1.0 : 0.0,
-        'theme' => $this->hasValue($node, 'field_color_theme') ? 1.0 : 0.0,
+        'type' => $this->hasValue($node, 'field_op_website_type') ? 1.0 : 0.0,
+        'template' => $this->hasValue($node, 'field_op_template') ? 1.0 : 0.0,
+        'theme' => $this->hasValue($node, 'field_op_theme') ? 1.0 : 0.0,
         'sections' => $this->sectionsCompletionRatio($node),
         'preview' => $sectionsIndex !== FALSE && $currentIndex > $sectionsIndex ? 1.0 : 0.0,
         'publish' => $this->publishStatus($node) === 'published' ? 1.0 : 0.0,
@@ -177,19 +195,26 @@ class BuilderService {
     return count(array_intersect($required, $this->getCompletedSectionIds($node))) / count($required);
   }
 
+  /**
+   * Bundles present across both section fields — Hero (field_op_hero,
+   * single/required) is deliberately separate from the other section types
+   * (field_op_sections, unlimited), per Doc 03.
+   */
   private function sectionParagraphBundles(NodeInterface $node): array {
-    if (!$node->hasField('field_sections') || $node->get('field_sections')->isEmpty()) {
-      return [];
-    }
     $bundles = [];
-    foreach ($node->get('field_sections')->referencedEntities() as $paragraph) {
-      $bundles[] = $paragraph->bundle();
+    if ($node->hasField('field_op_hero') && !$node->get('field_op_hero')->isEmpty()) {
+      $bundles[] = 'hero';
+    }
+    if ($node->hasField('field_op_sections') && !$node->get('field_op_sections')->isEmpty()) {
+      foreach ($node->get('field_op_sections')->referencedEntities() as $paragraph) {
+        $bundles[] = $paragraph->bundle();
+      }
     }
     return $bundles;
   }
 
   private function publishStatus(NodeInterface $node): ?string {
-    return $node->hasField('field_publish_status') ? $node->get('field_publish_status')->value : NULL;
+    return $node->hasField('field_op_status') ? $node->get('field_op_status')->value : NULL;
   }
 
   private function hasValue(NodeInterface $node, string $field): bool {

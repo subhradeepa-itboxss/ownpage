@@ -56,14 +56,14 @@ class BuilderBasicInfoForm extends FormBase {
       $websiteTypeOptions[$term->id()] = $term->label();
     }
 
-    $selectedWebsiteTypeId = $form_state->getValue('website_type', $node->get('field_website_type')->target_id);
+    $selectedWebsiteTypeId = $form_state->getValue('website_type', $node->get('field_op_website_type')->target_id);
     $selectedWebsiteTypeId = $selectedWebsiteTypeId !== NULL ? (int) $selectedWebsiteTypeId : NULL;
 
     $form['website_type'] = [
       '#type' => 'select',
       '#title' => $this->t('Website Type'),
       '#options' => $websiteTypeOptions,
-      '#default_value' => $node->get('field_website_type')->target_id,
+      '#default_value' => $node->get('field_op_website_type')->target_id,
       '#required' => TRUE,
       '#ajax' => [
         'callback' => '::updateTemplateOptions',
@@ -79,7 +79,7 @@ class BuilderBasicInfoForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Template'),
       '#options' => $this->templateOptions($selectedWebsiteTypeId),
-      '#default_value' => $node->get('field_template')->target_id,
+      '#default_value' => $node->get('field_op_template')->target_id,
       '#required' => TRUE,
     ];
 
@@ -113,8 +113,8 @@ class BuilderBasicInfoForm extends FormBase {
     $node = $this->entityTypeManager->getStorage('node')->load($form_state->getValue('node_id'));
 
     $this->builderService->saveStepData($node, 'type', [
-      'field_website_type' => $form_state->getValue('website_type'),
-      'field_template' => $form_state->getValue('template'),
+      'field_op_website_type' => $form_state->getValue('website_type'),
+      'field_op_template' => $form_state->getValue('template'),
     ]);
 
     $form_state->setRedirect('ownpage.builder.sections', ['node' => $node->id()]);

@@ -7,3 +7,129 @@
 
 // Include bootstrap.
 @import '../../../../themes/contrib/bootstrap5/scss/style';
+
+// Public website rendering: Template layout + Theme colors.
+//
+// Classes are added by ownpage_theme_preprocess_node() based on the real
+// field_op_template / field_op_theme taxonomy term labels (see CLAUDE.md
+// canonical field table) — not hardcoded per node, just per class name.
+// Section styling below targets Drupal's own default paragraph classes
+// (.paragraph--type--hero etc.) — no custom Twig templates needed.
+
+.node--type-website {
+  --op-accent: #{$op-blue-accent};
+  --op-accent-soft: #{$op-blue-soft};
+  --op-bg: #{$op-blue-bg};
+  --op-text: #{$op-blue-text};
+
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  color: var(--op-text);
+  background: var(--op-bg);
+
+  // Color themes (Blue / Green / Purple / Dark — real Theme taxonomy terms),
+  // values sourced from _variables_bootstrap.scss.
+  &.op-theme--blue   { --op-accent: #{$op-blue-accent};   --op-accent-soft: #{$op-blue-soft};   --op-bg: #{$op-blue-bg};   --op-text: #{$op-blue-text}; }
+  &.op-theme--green  { --op-accent: #{$op-green-accent};  --op-accent-soft: #{$op-green-soft};  --op-bg: #{$op-green-bg};  --op-text: #{$op-green-text}; }
+  &.op-theme--purple { --op-accent: #{$op-purple-accent}; --op-accent-soft: #{$op-purple-soft}; --op-bg: #{$op-purple-bg}; --op-text: #{$op-purple-text}; }
+  &.op-theme--dark   { --op-accent: #{$op-dark-accent};   --op-accent-soft: #{$op-dark-soft};   --op-bg: #{$op-dark-bg};   --op-text: #{$op-dark-text}; }
+
+  // Section styling, shared across all templates ------------------------
+  .paragraph--type--hero {
+    padding: 4rem 2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    background: var(--op-accent);
+    color: #fff;
+    border-radius: 0.5rem;
+
+    a {
+      display: inline-block;
+      margin-top: 1.25rem;
+      padding: 0.6rem 1.75rem;
+      border-radius: 0.3rem;
+      background: #fff;
+      color: var(--op-accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  }
+
+  .paragraph--type--education,
+  .paragraph--type--experience {
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+    border-left: 3px solid var(--op-accent);
+    background: var(--op-accent-soft);
+  }
+
+  .paragraph--type--skill {
+    display: inline-block;
+    padding: 0.4rem 1.1rem;
+    margin: 0.25rem;
+    border-radius: 999px;
+    background: var(--op-accent-soft);
+    color: var(--op-accent);
+    font-weight: 600;
+  }
+
+  .paragraph--type--product {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--op-accent-soft);
+    border-radius: 0.5rem;
+  }
+
+  // Template layouts (Agency / Business / Catalogue / Classic / Freelancer /
+  // Minimal / Modern / Professional — real Template taxonomy terms). Each
+  // block only overrides what makes that template look distinct.
+  &.op-template--agency .paragraph--type--hero {
+    text-align: left;
+    border-radius: 0;
+  }
+
+  &.op-template--business {
+    .paragraph--type--education,
+    .paragraph--type--experience { border-left-width: 6px; }
+  }
+
+  &.op-template--catalogue .paragraph--type--product {
+    display: inline-block;
+    width: calc(50% - 1rem);
+    margin-right: 1rem;
+    vertical-align: top;
+  }
+
+  &.op-template--classic {
+    font-family: Georgia, 'Times New Roman', serif;
+
+    .paragraph--type--hero { border-radius: 0; }
+  }
+
+  &.op-template--freelancer .paragraph--type--hero {
+    border-radius: 999px 999px 0 0;
+  }
+
+  &.op-template--minimal {
+    .paragraph--type--hero {
+      background: transparent;
+      color: var(--op-text);
+      border: 1px solid var(--op-accent);
+    }
+
+    .paragraph--type--education,
+    .paragraph--type--experience,
+    .paragraph--type--product { background: transparent; }
+  }
+
+  &.op-template--modern .paragraph--type--hero {
+    border-radius: 0 0 3rem 0;
+  }
+
+  &.op-template--professional {
+    font-family: 'Segoe UI', Arial, sans-serif;
+
+    .paragraph--type--hero { border-radius: 0.15rem; }
+  }
+}

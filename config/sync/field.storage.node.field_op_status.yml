@@ -20,6 +20,15 @@ settings:
     -
       value: archived
       label: Archived
+    -
+      value: in_progress
+      label: 'In Progress'
+    -
+      value: ready
+      label: Ready
+    -
+      value: deleted
+      label: Deleted
   allowed_values_function: ''
 module: options
 locked: false

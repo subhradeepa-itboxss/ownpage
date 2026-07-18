@@ -12864,4 +12864,122 @@ code {
   overflow-y: auto;
 }
 
+.node--type-website {
+  --op-accent: #2563eb;
+  --op-accent-soft: #dbeafe;
+  --op-bg: #ffffff;
+  --op-text: #1a1a1a;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  color: var(--op-text);
+  background: var(--op-bg);
+}
+.node--type-website.op-theme--blue {
+  --op-accent: #2563eb;
+  --op-accent-soft: #dbeafe;
+  --op-bg: #ffffff;
+  --op-text: #1a1a1a;
+}
+.node--type-website.op-theme--green {
+  --op-accent: #16a34a;
+  --op-accent-soft: #dcfce7;
+  --op-bg: #ffffff;
+  --op-text: #1a1a1a;
+}
+.node--type-website.op-theme--purple {
+  --op-accent: #7c3aed;
+  --op-accent-soft: #ede9fe;
+  --op-bg: #ffffff;
+  --op-text: #1a1a1a;
+}
+.node--type-website.op-theme--dark {
+  --op-accent: #38bdf8;
+  --op-accent-soft: #0c4a6e;
+  --op-bg: #0f172a;
+  --op-text: #f1f5f9;
+}
+.node--type-website .paragraph--type--hero {
+  padding: 4rem 2rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  background: var(--op-accent);
+  color: #fff;
+  border-radius: 0.5rem;
+}
+.node--type-website .paragraph--type--hero a {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.6rem 1.75rem;
+  border-radius: 0.3rem;
+  background: #fff;
+  color: var(--op-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.node--type-website .paragraph--type--education,
+.node--type-website .paragraph--type--experience {
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  border-left: 3px solid var(--op-accent);
+  background: var(--op-accent-soft);
+}
+.node--type-website .paragraph--type--skill {
+  display: inline-block;
+  padding: 0.4rem 1.1rem;
+  margin: 0.25rem;
+  border-radius: 999px;
+  background: var(--op-accent-soft);
+  color: var(--op-accent);
+  font-weight: 600;
+}
+.node--type-website .paragraph--type--product {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--op-accent-soft);
+  border-radius: 0.5rem;
+}
+.node--type-website.op-template--agency .paragraph--type--hero {
+  text-align: left;
+  border-radius: 0;
+}
+.node--type-website.op-template--business .paragraph--type--education,
+.node--type-website.op-template--business .paragraph--type--experience {
+  border-left-width: 6px;
+}
+.node--type-website.op-template--catalogue .paragraph--type--product {
+  display: inline-block;
+  width: calc(50% - 1rem);
+  margin-right: 1rem;
+  vertical-align: top;
+}
+.node--type-website.op-template--classic {
+  font-family: Georgia, "Times New Roman", serif;
+}
+.node--type-website.op-template--classic .paragraph--type--hero {
+  border-radius: 0;
+}
+.node--type-website.op-template--freelancer .paragraph--type--hero {
+  border-radius: 999px 999px 0 0;
+}
+.node--type-website.op-template--minimal .paragraph--type--hero {
+  background: transparent;
+  color: var(--op-text);
+  border: 1px solid var(--op-accent);
+}
+.node--type-website.op-template--minimal .paragraph--type--education,
+.node--type-website.op-template--minimal .paragraph--type--experience,
+.node--type-website.op-template--minimal .paragraph--type--product {
+  background: transparent;
+}
+.node--type-website.op-template--modern .paragraph--type--hero {
+  border-radius: 0 0 3rem 0;
+}
+.node--type-website.op-template--professional {
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+.node--type-website.op-template--professional .paragraph--type--hero {
+  border-radius: 0.15rem;
+}
+
 /*# sourceMappingURL=style.css.map */

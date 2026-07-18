@@ -18,7 +18,7 @@ mode: default
 content:
   field_edu_degree:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -26,14 +26,14 @@ content:
     region: content
   field_edu_description:
     type: basic_string
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 4
     region: content
   field_edu_end:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
       format_type: medium
@@ -42,7 +42,7 @@ content:
     region: content
   field_edu_institute:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -50,7 +50,7 @@ content:
     region: content
   field_edu_start:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
       format_type: medium

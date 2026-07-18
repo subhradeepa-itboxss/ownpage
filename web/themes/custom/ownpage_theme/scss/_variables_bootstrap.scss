@@ -1,3 +1,28 @@
 // Bootstrap variables (overrides).
 $legend-font-size: 1rem;
 $table-cell-padding-x: .75rem;
+
+// Public website color themes — Blue / Green / Purple / Dark, matching the
+// real Theme taxonomy term values (Structure > Taxonomy > Theme). A site's
+// field_op_theme term selects one of these at runtime via the
+// .op-theme--{name} class (see style.scss) — these variables are the
+// single source of truth for the actual color values.
+$op-blue-accent:   #2563eb !default;
+$op-blue-soft:     #dbeafe !default;
+$op-blue-bg:       #ffffff !default;
+$op-blue-text:     #1a1a1a !default;
+
+$op-green-accent:  #16a34a !default;
+$op-green-soft:    #dcfce7 !default;
+$op-green-bg:      #ffffff !default;
+$op-green-text:    #1a1a1a !default;
+
+$op-purple-accent: #7c3aed !default;
+$op-purple-soft:   #ede9fe !default;
+$op-purple-bg:     #ffffff !default;
+$op-purple-text:   #1a1a1a !default;
+
+$op-dark-accent:   #38bdf8 !default;
+$op-dark-soft:     #0c4a6e !default;
+$op-dark-bg:       #0f172a !default;
+$op-dark-text:     #f1f5f9 !default;

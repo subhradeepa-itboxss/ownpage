@@ -4,3 +4,25 @@
  * @file
  * Ownpage theme file.
  */
+
+/**
+ * Implements hook_preprocess_HOOK() for node templates.
+ *
+ * Tags the public Website page with two CSS classes derived from its real
+ * field_op_template / field_op_theme taxonomy term labels, so scss/_public_site.scss
+ * can style each Template/Theme combination differently. No Twig override
+ * needed — Drupal's default node/paragraph markup already carries enough
+ * classes for the rest.
+ */
+function ownpage_theme_preprocess_node(array &$variables) {
+  $node = $variables['node'];
+  if ($node->bundle() !== 'website') {
+    return;
+  }
+  if ($node->hasField('field_op_template') && !$node->get('field_op_template')->isEmpty()) {
+    $variables['attributes']['class'][] = 'op-template--' . strtolower($node->get('field_op_template')->entity->label());
+  }
+  if ($node->hasField('field_op_theme') && !$node->get('field_op_theme')->isEmpty()) {
+    $variables['attributes']['class'][] = 'op-theme--' . strtolower($node->get('field_op_theme')->entity->label());
+  }
+}

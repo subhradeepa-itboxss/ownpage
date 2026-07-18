@@ -13,7 +13,9 @@ namespace Drupal\ownpage\Plugin\BuilderStep;
 interface BuilderStepInterface {
 
   /**
-   * The step ID (also used as the field_builder_status value, uppercased).
+   * The step ID (e.g. 'type', 'template', 'sections') — not persisted to any
+   * field; BuilderService derives the current step live from which fields
+   * are already filled.
    */
   public function id(): string;
 
