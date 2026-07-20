@@ -1,54 +1,60 @@
-// Sub theme styling.
 @import 'variables_drupal';
-
-// Bootstrap overridden variables.
-// @see https://getbootstrap.com/docs/5.2/customize/sass/#variable-defaults.
 @import 'variables_bootstrap';
-
-// Include bootstrap.
 @import '../../../../themes/contrib/bootstrap5/scss/style';
 
-// Public website rendering: Template layout + Theme colors.
-//
-// Classes are added by ownpage_theme_preprocess_node() based on the real
-// field_op_template / field_op_theme taxonomy term labels (see CLAUDE.md
-// canonical field table) — not hardcoded per node, just per class name.
-// Section styling below targets Drupal's own default paragraph classes
-// (.paragraph--type--hero etc.) — no custom Twig templates needed.
 
 .node--type-website {
   --op-accent: #{$op-blue-accent};
   --op-accent-soft: #{$op-blue-soft};
   --op-bg: #{$op-blue-bg};
   --op-text: #{$op-blue-text};
-
   max-width: 1320px;
   margin: 0 auto;
   padding: 0 1rem;
   color: var(--op-text);
   background: var(--op-bg);
 
-  // Color themes (Blue / Green / Purple / Dark — real Theme taxonomy terms),
-  // values sourced from _variables_bootstrap.scss.
-  &.op-theme--blue   { --op-accent: #{$op-blue-accent};   --op-accent-soft: #{$op-blue-soft};   --op-bg: #{$op-blue-bg};   --op-text: #{$op-blue-text}; }
-  &.op-theme--green  { --op-accent: #{$op-green-accent};  --op-accent-soft: #{$op-green-soft};  --op-bg: #{$op-green-bg};  --op-text: #{$op-green-text}; }
-  &.op-theme--purple { --op-accent: #{$op-purple-accent}; --op-accent-soft: #{$op-purple-soft}; --op-bg: #{$op-purple-bg}; --op-text: #{$op-purple-text}; }
-  &.op-theme--dark   { --op-accent: #{$op-dark-accent};   --op-accent-soft: #{$op-dark-soft};   --op-bg: #{$op-dark-bg};   --op-text: #{$op-dark-text}; }
+  &.op-theme--blue {
+    --op-accent: #{$op-blue-accent};
+    --op-accent-soft: #{$op-blue-soft};
+    --op-bg: #{$op-blue-bg};
+    --op-text: #{$op-blue-text};
+  }
 
-  // Section styling, shared across all templates ------------------------
+  &.op-theme--green {
+    --op-accent: #{$op-green-accent};
+    --op-accent-soft: #{$op-green-soft};
+    --op-bg: #{$op-green-bg};
+    --op-text: #{$op-green-text};
+  }
+
+  &.op-theme--purple {
+    --op-accent: #{$op-purple-accent};
+    --op-accent-soft: #{$op-purple-soft};
+    --op-bg: #{$op-purple-bg};
+    --op-text: #{$op-purple-text};
+  }
+
+  &.op-theme--dark {
+    --op-accent: #{$op-dark-accent};
+    --op-accent-soft: #{$op-dark-soft};
+    --op-bg: #{$op-dark-bg};
+    --op-text: #{$op-dark-text};
+  }
+
   .paragraph--type--hero {
     padding: 4rem 2rem;
     margin-bottom: 2.5rem;
     text-align: center;
     background: var(--op-accent);
     color: #fff;
-    border-radius: 0.5rem;
+    border-radius: .5rem;
 
     a {
       display: inline-block;
       margin-top: 1.25rem;
-      padding: 0.6rem 1.75rem;
-      border-radius: 0.3rem;
+      padding: .6rem 1.75rem;
+      border-radius: .3rem;
       background: #fff;
       color: var(--op-accent);
       text-decoration: none;
@@ -66,8 +72,8 @@
 
   .paragraph--type--skill {
     display: inline-block;
-    padding: 0.4rem 1.1rem;
-    margin: 0.25rem;
+    padding: .4rem 1.1rem;
+    margin: .25rem;
     border-radius: 999px;
     background: var(--op-accent-soft);
     color: var(--op-accent);
@@ -78,20 +84,21 @@
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     border: 1px solid var(--op-accent-soft);
-    border-radius: 0.5rem;
+    border-radius: .5rem;
   }
 
-  // Template layouts (Agency / Business / Catalogue / Classic / Freelancer /
-  // Minimal / Modern / Professional — real Template taxonomy terms). Each
-  // block only overrides what makes that template look distinct.
+
   &.op-template--agency .paragraph--type--hero {
     text-align: left;
     border-radius: 0;
   }
 
   &.op-template--business {
+
     .paragraph--type--education,
-    .paragraph--type--experience { border-left-width: 6px; }
+    .paragraph--type--experience {
+      border-left-width: 6px;
+    }
   }
 
   &.op-template--catalogue .paragraph--type--product {
@@ -104,7 +111,9 @@
   &.op-template--classic {
     font-family: Georgia, 'Times New Roman', serif;
 
-    .paragraph--type--hero { border-radius: 0; }
+    .paragraph--type--hero {
+      border-radius: 0;
+    }
   }
 
   &.op-template--freelancer .paragraph--type--hero {
@@ -120,7 +129,9 @@
 
     .paragraph--type--education,
     .paragraph--type--experience,
-    .paragraph--type--product { background: transparent; }
+    .paragraph--type--product {
+      background: transparent;
+    }
   }
 
   &.op-template--modern .paragraph--type--hero {
@@ -130,6 +141,370 @@
   &.op-template--professional {
     font-family: 'Segoe UI', Arial, sans-serif;
 
-    .paragraph--type--hero { border-radius: 0.15rem; }
+    .paragraph--type--hero {
+      border-radius: .15rem;
+    }
   }
+}
+
+.view-frontpage {
+  .view-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.75rem;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem;
+  }
+
+  .views-row {
+    display: flex;
+  }
+}
+
+.node--type-website.node--view-mode-teaser {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+  transition: transform .18s ease, box-shadow .18s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .16);
+  }
+
+  >h2 {
+    margin: 0;
+    padding: 1.1rem 1.25rem .5rem;
+    font-size: 1.25rem;
+    line-height: 1.3;
+
+    a {
+      color: #1a1a1a;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--op-accent);
+      }
+    }
+  }
+
+  .node__submitted,
+  .node__links,
+  .field--name-field-op-slug {
+    display: none;
+  }
+
+  .field--name-field-op-website-type,
+  .field--name-field-op-template,
+  .field--name-field-op-theme {
+    display: inline-block;
+    margin: 0 .35rem .5rem 0;
+
+    a {
+      display: inline-block;
+      padding: .2rem .7rem;
+      border-radius: 999px;
+      background: var(--op-accent-soft);
+      color: var(--op-accent);
+      font-size: .78rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  }
+
+  .field--name-field-op-website-type {
+    margin-left: 1.25rem;
+  }
+
+  .field--name-field-op-status {
+    display: inline-block;
+    margin: 0 0 .75rem 1.25rem;
+    padding: .2rem .7rem;
+    border-radius: 999px;
+    font-size: .78rem;
+    font-weight: 600;
+    background: #e9ecef;
+    color: #495057;
+  }
+
+  .field--name-field-op-hero {
+    margin-top: auto;
+
+    .paragraph--type--hero {
+      margin: 0;
+      padding: 2.25rem 1.25rem;
+      border-radius: 0;
+      text-align: left;
+    }
+  }
+
+  .field--name-field-hero-heading {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .field--name-field-hero-subheading {
+    font-size: .85rem;
+    opacity: .9;
+    margin-top: .25rem;
+  }
+}
+
+
+.status-published {
+  background: #d1f7dd !important;
+  color: #146c2e !important;
+}
+
+.status-draft {
+  background: #fff3cd !important;
+  color: #7a5b00 !important;
+}
+
+.status-archived {
+  background: #e9ecef !important;
+  color: #6c757d !important;
+}
+
+.view-my-websites {
+  .view-header {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 0;
+    text-align: left;
+  }
+
+  .view-header a {
+    display: inline-block;
+    padding: .6rem 1.4rem;
+    border-radius: 6px;
+    background: var(--op-accent, #2563eb);
+    color: #fff;
+    font-weight: 600;
+    font-size: .9rem;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+
+  .view-header a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, .35);
+  }
+
+  .views-view-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .views-row {
+    display: contents;
+  }
+
+  .views-col {
+    width: 100% !important;
+    float: none !important;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    border-top: 4px solid var(--op-accent, #2563eb);
+    border-radius: 10px;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+
+  .views-col:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .18);
+  }
+
+  .views-field-title {
+    margin-bottom: .6rem;
+  }
+
+  .views-field-title a {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+
+  .views-field-field-op-website-type,
+  .views-field-field-op-theme {
+    display: inline-block;
+    margin: 0 .3rem .3rem 0;
+  }
+
+  .views-field-field-op-website-type a,
+  .views-field-field-op-theme a {
+    display: inline-block;
+    padding: .2rem .65rem;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #4338ca;
+    font-size: .75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .15s ease, color .15s ease;
+  }
+
+  .views-col:hover .views-field-field-op-website-type a,
+  .views-col:hover .views-field-field-op-theme a {
+    background: var(--op-accent, #2563eb);
+    color: #fff;
+  }
+
+  .views-field-field-op-status {
+    margin-top: .5rem;
+  }
+
+  .views-field-field-op-status .field-content {
+    display: inline-block;
+    padding: .2rem .65rem;
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 600;
+    background: #e9ecef;
+    color: #495057;
+  }
+}
+
+
+#block-ownpage-theme-content form[id^="ownpage-"] {
+  max-width: 640px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#block-ownpage-theme-content form[id^="ownpage-"] label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+#block-ownpage-theme-content form[id^="ownpage-"] .form-required::after {
+  content: " *";
+  color: red;
+}
+
+#block-ownpage-theme-content form[id^="ownpage-"] .form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+#block-ownpage-theme-content form[id^="ownpage-"] .form-select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+#block-ownpage-theme-content form[id^="ownpage-"] .form-control:focus {
+  border: 1px solid #2563eb;
+  outline: none;
+}
+
+#block-ownpage-theme-content form[id^="ownpage-"] .form-select:focus {
+  border: 1px solid #2563eb;
+  outline: none;
+}
+
+#block-ownpage-theme-content form[id^="ownpage-"] .btn-secondary {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#block-ownpage-theme-content form[id^="ownpage-"] .btn-secondary:hover {
+  background: #1d4ed8;
+}
+
+#block-ownpage-theme-content form[id^="ownpage-"] #edit-back {
+  display: inline-block;
+  margin-right: 15px;
+  padding: 10px;
+  color: #555555;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#block-ownpage-theme-content form[id^="ownpage-"] #edit-back:hover {
+  color: #2563eb;
+}
+
+/* sections page paragraph fields */
+#block-ownpage-theme-content .paragraphs-tabs-wrapper {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+#block-ownpage-theme-content .paragraphs-tabs {
+  display: none;
+}
+
+#block-ownpage-theme-content .field-multiple-table {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#block-ownpage-theme-content .field-multiple-table thead th {
+  text-align: left;
+  padding-bottom: 8px;
+}
+
+#block-ownpage-theme-content .field-multiple-table h4.label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+#block-ownpage-theme-content .field-add-more-submit {
+  padding: 8px 15px;
+  border: 1px solid #2563eb;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #2563eb;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#block-ownpage-theme-content .field-add-more-submit:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+#block-ownpage-theme-content .dropbutton-wrapper {
+  display: inline-block;
 }

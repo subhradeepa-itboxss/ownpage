@@ -76,6 +76,37 @@ class BuilderService {
   }
 
   /**
+   * Route name for the step after $step, or NULL at the end of the wizard.
+   *
+   * Lets forms redirect forward without hardcoding the next route
+   * (docs/BUILDER_IMPLEMENTATION_GUIDE.md §41 dev note: "Controllers must
+   * never know the wizard order").
+   */
+  public function getNextStepRoute(NodeInterface $node, string $step): ?string {
+    return $this->stepRoute($node, $this->getNextStep($node, $step));
+  }
+
+  /**
+   * Route name for the step before $step, or NULL if there is none.
+   */
+  public function getPreviousStepRoute(NodeInterface $node, string $step): ?string {
+    return $this->stepRoute($node, $this->getPreviousStep($node, $step));
+  }
+
+  private function stepRoute(NodeInterface $node, ?string $stepId): ?string {
+    if ($stepId === NULL) {
+      return NULL;
+    }
+    $websiteTypePlugin = $this->getWebsiteTypePlugin($node);
+    foreach ($this->stepManager->getOrderedSteps($websiteTypePlugin?->id()) as $step) {
+      if ($step->id() === $stepId) {
+        return $step->route();
+      }
+    }
+    return NULL;
+  }
+
+  /**
    * Persists step data, then advances field_op_status if not already
    * published/archived/deleted.
    *
@@ -179,7 +210,14 @@ class BuilderService {
     return $this->calculateProgress($node) === 100;
   }
 
-  private function requiredSectionsComplete(NodeInterface $node): bool {
+  /**
+   * Whether every section the website type marks as required has content.
+   *
+   * Public so BuilderSectionsForm can block forward navigation until this
+   * is true, matching the Doc04 "Please complete all required sections."
+   * error message and the "Required fields before next step" rule.
+   */
+  public function requiredSectionsComplete(NodeInterface $node): bool {
     return $this->sectionsCompletionRatio($node) >= 1.0;
   }
 

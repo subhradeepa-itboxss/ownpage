@@ -117,7 +117,8 @@ class BuilderBasicInfoForm extends FormBase {
       'field_op_template' => $form_state->getValue('template'),
     ]);
 
-    $form_state->setRedirect('ownpage.builder.sections', ['node' => $node->id()]);
+    $route = $this->builderService->getNextStepRoute($node, 'template');
+    $form_state->setRedirect($route ?? 'ownpage.dashboard_websites', $route ? ['node' => $node->id()] : []);
   }
 
 }

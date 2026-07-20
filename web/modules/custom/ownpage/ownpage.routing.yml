@@ -14,17 +14,37 @@ ownpage.dashboard_websites:
   requirements:
     _permission: 'manage own ownpage website'
 
+ownpage.dashboard_websites_add:
+  path: '/dashboard/websites/add'
+  defaults:
+    _form: '\Drupal\ownpage\Form\CreateWebsiteForm'
+    _title: 'Create Website'
+  requirements:
+    _permission: 'manage own ownpage website'
+
 ownpage.builder:
   path: '/builder/{node}'
   defaults:
     _form: '\Drupal\ownpage\Form\BuilderBasicInfoForm'
     _title: 'Website Builder'
   requirements:
-    _permission: 'manage own ownpage website'
+    _custom_access: '\Drupal\ownpage\Access\BuilderAccess::access'
   options:
     parameters:
       node:
-        type: entity:node   
+        type: entity:node
+
+ownpage.builder.theme:
+  path: '/builder/{node}/theme'
+  defaults:
+    _form: '\Drupal\ownpage\Form\ThemeSelectionForm'
+    _title: 'Website Builder - Theme'
+  requirements:
+    _custom_access: '\Drupal\ownpage\Access\BuilderAccess::access'
+  options:
+    parameters:
+      node:
+        type: entity:node
 
 ownpage.builder.sections:
   path: '/builder/{node}/sections'
@@ -32,7 +52,31 @@ ownpage.builder.sections:
     _form: '\Drupal\ownpage\Form\BuilderSectionsForm'
     _title: 'Website Builder - Sections'
   requirements:
-    _permission: 'manage own ownpage website'
+    _custom_access: '\Drupal\ownpage\Access\BuilderAccess::access'
+  options:
+    parameters:
+      node:
+        type: entity:node
+
+ownpage.builder.preview:
+  path: '/builder/{node}/preview'
+  defaults:
+    _controller: '\Drupal\ownpage\Controller\PreviewController::preview'
+    _title: 'Website Builder - Preview'
+  requirements:
+    _custom_access: '\Drupal\ownpage\Access\BuilderAccess::access'
+  options:
+    parameters:
+      node:
+        type: entity:node
+
+ownpage.builder.publish:
+  path: '/builder/{node}/publish'
+  defaults:
+    _form: '\Drupal\ownpage\Form\PublishForm'
+    _title: 'Website Builder - Publish'
+  requirements:
+    _custom_access: '\Drupal\ownpage\Access\BuilderAccess::access'
   options:
     parameters:
       node:

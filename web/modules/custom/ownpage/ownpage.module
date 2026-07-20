@@ -4,3 +4,17 @@
  * @file
  * Contains hooks and shared functions for the OwnPage module.
  */
+
+/**
+ * Implements hook_views_pre_render().
+ *
+ * Create Website button only for admin roles - customers get their
+ * website through the purchase flow, not a direct button (see Doc 04).
+ */
+function ownpage_views_pre_render(\Drupal\views\ViewExecutable $view) {
+  if ($view->id() == 'my_websites' && $view->current_display == 'page_1') {
+    if (!\Drupal::currentUser()->hasPermission('administer ownpage websites')) {
+      unset($view->header['area']);
+    }
+  }
+}

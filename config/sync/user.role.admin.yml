@@ -1,0 +1,23 @@
+uuid: adbbccf5-92fa-4007-ab5c-dda3d65e726f
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.image
+    - node.type.website
+  module:
+    - media
+    - node
+    - ownpage
+id: admin
+label: Admin
+weight: 5
+is_admin: null
+permissions:
+  - 'administer ownpage websites'
+  - 'create image media'
+  - 'create website content'
+  - 'delete own website content'
+  - 'edit any website content'
+  - 'edit own website content'
+  - 'view own unpublished content'

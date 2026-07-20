@@ -1,0 +1,11 @@
+uuid: 1c4cec3e-ed6a-4d7c-b57f-5a487abb48b3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.builder_sections
+label: 'Builder: Sections'
+description: ''
+targetEntityType: node
+cache: true

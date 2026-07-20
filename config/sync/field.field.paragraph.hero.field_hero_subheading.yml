@@ -9,7 +9,7 @@ id: paragraph.hero.field_hero_subheading
 field_name: field_hero_subheading
 entity_type: paragraph
 bundle: hero
-label: hero_subheading
+label: 'Hero Subheading'
 description: ''
 required: false
 translatable: false
